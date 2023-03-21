@@ -28,6 +28,6 @@ SetSpawn and Spawn plugin for 1.8 to Latest Minecraft servers
 ---
 
 ## License
->You can check out the full license [here](https://github.com/Stars-Development/sHubCore/blob/main/LICENSE)
+>You can check out the full license [here](https://github.com/Stars-Development/sSpawn/blob/main/LICENSE)
 
 This project is licensed under the terms of the **Apache License 2.0**

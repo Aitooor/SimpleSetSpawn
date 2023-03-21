@@ -10,12 +10,12 @@ import org.bukkit.entity.Player;
 import team.unnamed.inject.InjectAll;
 
 @InjectAll
-@Command(names = {"hubcore", "sHubCore", "sHubcore", "shubcore", "shubCore"}, permission = "hubcore.admin")
+@Command(names = {"sSpawn"}, permission = "sspawn.admin")
 public class MainCommand implements CommandClass {
 
     private Main plugin;
 
-    @Command(names = {"reload", "rl"}, permission = "hubcore.reload")
+    @Command(names = {"reload", "rl"}, permission = "sspawn.reload")
     public void reloadCommand(@Sender CommandSender sender){
         if(!(sender instanceof Player)) {
             plugin.reloadConfig();

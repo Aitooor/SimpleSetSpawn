@@ -53,11 +53,11 @@ public interface ChatUtil {
     }
 
     static String getPrefixGame() {
-        return "&8[&bsHubCore&8] ";
+        return "&8[&bsSpawn&8] ";
     }
 
     static String getPrefix() {
-        return "[sHubCore] ";
+        return "[sSpawn] ";
     }
 
 }

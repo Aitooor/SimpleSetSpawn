@@ -18,7 +18,7 @@ public class CommandService implements Service{
     private CommandManager commandManager;
     @Override
     public void start() {
-        commandManager = new BukkitCommandManager("sHubCore");
+        commandManager = new BukkitCommandManager("sSpawn");
         PartInjector partInjector = PartInjector.create();
         partInjector.install(new DefaultsModule());
         partInjector.install(new BukkitModule());
