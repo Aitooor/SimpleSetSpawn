@@ -1,0 +1,8 @@
+# Teleport to spawn in join
+onjoin_spawn: true
+# Spawn to the spawn on the first join
+first_join_spawn: true
+
+# DON'T CHANGE
+spawn_location: world;0.0;0.0;0.0;0.0;0.0
+# DON'T CHANGE
