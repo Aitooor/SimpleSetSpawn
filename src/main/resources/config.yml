@@ -1,7 +1,7 @@
 # Teleport to spawn in join
 onjoin_spawn: true
 
-# Teleport to the spawn on the first join (Disable "first_join_spawn" if you use this)
+# Teleport to the spawn on the first join (Disable "spawn_for_newbies" if you use this)
 on_first_join_spawn: false
 # Setup different spawn for first join players (Disable "on_first_join_spawn" if you use this)
-first_join_spawn: true
+spawn_for_newbies: true
