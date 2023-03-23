@@ -21,10 +21,16 @@ public class PlayerListeners implements Listener {
     public void onPlayerJoinEvent(PlayerJoinEvent event) {
         Player player = event.getPlayer();
 
-        if(plugin.getConfig().getBoolean("first_join_spawn")) {
+        if(plugin.getConfig().getBoolean("on_first_join_spawn")) {
            if(!player.hasPlayedBefore()) {
                player.teleport(Objects.requireNonNull(LocationCodec.deserialize(Objects.requireNonNull(config.getString("spawn_location")))));
            }
+        }
+
+        if(plugin.getConfig().getBoolean("first_join_spawn")) {
+            if(!player.hasPlayedBefore()) {
+                player.teleport(Objects.requireNonNull(LocationCodec.deserialize(Objects.requireNonNull(config.getString("first_spawn_location")))));
+            }
         }
 
         if(player.hasPlayedBefore()) {
