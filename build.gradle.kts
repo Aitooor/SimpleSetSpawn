@@ -16,7 +16,7 @@ bukkit {
     name = rootProject.name
     description = "Spawn plugin for 1.8 to Latest version"
     apiVersion = "1.13"
-    version = "1.2.0"
+    version = "1.2.1"
     softDepend = listOf("PlaceholderAPI")
 }
 
