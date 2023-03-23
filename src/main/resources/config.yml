@@ -1,3 +1,5 @@
+update_checker: true # Check for new updates
+
 # Teleport to spawn in join
 onjoin_spawn: true
 
