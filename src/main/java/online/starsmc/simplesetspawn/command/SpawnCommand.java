@@ -37,7 +37,7 @@ public class SpawnCommand implements CommandClass {
                         Objects.requireNonNull(spawnsConfig.get().getString("spawn_location"))
                 ))
         );
-        ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to spawn");
+        ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to Spawn");
     }
 
     @Command(names = {"firstspawn", "first"}, permission = "simplesetspawn.spawn.firstspawn")
@@ -54,6 +54,6 @@ public class SpawnCommand implements CommandClass {
                         Objects.requireNonNull(spawnsConfig.get().getString("first_spawn_location"))
                 ))
         );
-        ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to spawn");
+        ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
     }
 }

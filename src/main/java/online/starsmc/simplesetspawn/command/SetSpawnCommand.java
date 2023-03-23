@@ -33,7 +33,6 @@ public class SetSpawnCommand implements CommandClass {
 
         spawnsConfig.get().set("spawn_location", LocationCodec.serialize(player.getLocation()));
         spawnsConfig.save();
-        spawnsConfig.reload();
 
         ChatUtil.sendMsgPlayerPrefix(player, "&aSpawn correctly set");
     }
@@ -49,8 +48,7 @@ public class SetSpawnCommand implements CommandClass {
 
         spawnsConfig.get().set("first_spawn_location", LocationCodec.serialize(player.getLocation()));
         spawnsConfig.save();
-        spawnsConfig.reload();
 
-        ChatUtil.sendMsgPlayerPrefix(player, "&aSpawn correctly set");
+        ChatUtil.sendMsgPlayerPrefix(player, "&aFirst Spawn correctly set");
     }
 }
