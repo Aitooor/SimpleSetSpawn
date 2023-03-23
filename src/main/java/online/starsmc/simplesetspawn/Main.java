@@ -8,8 +8,6 @@ import team.unnamed.inject.Injector;
 import javax.inject.Inject;
 import java.util.Set;
 
-import static org.bukkit.Bukkit.getLogger;
-
 public class Main extends JavaPlugin {
     @Inject
     private Set<Service> services;
@@ -24,11 +22,15 @@ public class Main extends JavaPlugin {
         this.saveDefaultConfig();
         services.forEach(Service::start);
 
+        String serverVersion = this.getDescription().getVersion();
+
         new UpdateChecker(this, 108767).getVersion(version -> {
-            if (this.getDescription().getVersion().equals(version)) {
-                getLogger().info("There is not a new update available.");
+            if (serverVersion.equals(version)) {
+                getLogger().info("Current Version: " + serverVersion);
+                getLogger().info("No new version available.");
             } else {
-                getLogger().warning("There is a new update available.");
+                getLogger().warning("Found new version: " + version);
+                getLogger().warning("Your version: " + serverVersion);
                 getLogger().warning("Download it here https://www.spigotmc.org/resources/simplesetspawn-1-8-1-19-simple-setspawn-and-spawn.108767/");
             }
         });
