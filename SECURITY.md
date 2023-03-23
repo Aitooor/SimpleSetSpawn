@@ -8,4 +8,4 @@
 
 ## Reporting a Vulnerability
 
-Report it on https://github.com/Stars-Development/sSpawn/issues
+Report it on https://github.com/Stars-Development/SimpleSetSpawn/issues

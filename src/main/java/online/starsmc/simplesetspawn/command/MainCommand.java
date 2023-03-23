@@ -1,21 +1,21 @@
-package online.starsmc.spawn.command;
+package online.starsmc.simplesetspawn.command;
 
 import me.fixeddev.commandflow.annotated.CommandClass;
 import me.fixeddev.commandflow.annotated.annotation.Command;
 import me.fixeddev.commandflow.bukkit.annotation.Sender;
-import online.starsmc.spawn.Main;
-import online.starsmc.spawn.utils.ChatUtil;
+import online.starsmc.simplesetspawn.Main;
+import online.starsmc.simplesetspawn.utils.ChatUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import team.unnamed.inject.InjectAll;
 
 @InjectAll
-@Command(names = {"sSpawn"}, permission = "sspawn.admin")
+@Command(names = {"SimpleSetSpawn", "sss", "ssetspawn", "ssspawn"}, permission = "simplesetspawn.admin")
 public class MainCommand implements CommandClass {
 
     private Main plugin;
 
-    @Command(names = {"reload", "rl"}, permission = "sspawn.reload")
+    @Command(names = {"reload", "rl"}, permission = "simplesetspawn.reload")
     public void reloadCommand(@Sender CommandSender sender){
         if(!(sender instanceof Player)) {
             plugin.reloadConfig();

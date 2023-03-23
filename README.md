@@ -1,4 +1,4 @@
-sSpawn
+SimpleSetSpawn
 ============
 
 SetSpawn and Spawn plugin for 1.8 to Latest Minecraft servers
@@ -23,11 +23,11 @@ SetSpawn and Spawn plugin for 1.8 to Latest Minecraft servers
 - `Java 16`
 - `./gradlew build` (If gradle is not installed on your PC)
 - `gradle build` (If gradle is installed on your PC)
-- `Find it at /build/libs/sSpawn-(VERSION).jar`
+- `Find it at /build/libs/SimpleSetSpawn-(VERSION).jar`
 
 ---
 
 ## License
->You can check out the full license [here](https://github.com/Stars-Development/sSpawn/blob/main/LICENSE)
+>You can check out the full license [here](https://github.com/Stars-Development/SimpleSetSpawn/blob/main/LICENSE)
 
 This project is licensed under the terms of the **Apache License 2.0**

@@ -1,4 +1,4 @@
-package online.starsmc.spawn.service;
+package online.starsmc.simplesetspawn.service;
 
 import me.fixeddev.commandflow.CommandManager;
 import me.fixeddev.commandflow.annotated.AnnotatedCommandTreeBuilder;
@@ -18,7 +18,7 @@ public class CommandService implements Service{
     private CommandManager commandManager;
     @Override
     public void start() {
-        commandManager = new BukkitCommandManager("sSpawn");
+        commandManager = new BukkitCommandManager("SimpleSetSpawn");
         PartInjector partInjector = PartInjector.create();
         partInjector.install(new DefaultsModule());
         partInjector.install(new BukkitModule());

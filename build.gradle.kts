@@ -12,11 +12,11 @@ java {
 }
 
 bukkit {
-    main = "$group.spawn.Main"
+    main = "$group.simplesetspawn.Main"
     name = rootProject.name
     description = "Spawn plugin for 1.8 to Latest version"
     apiVersion = "1.13"
-    version = "1.0.0"
+    version = "1.0.1"
     softDepend = listOf("PlaceholderAPI")
 }
 
@@ -28,7 +28,7 @@ repositories {
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.19.3-R0.1-SNAPSHOT")
+    compileOnly("org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.2")
 
     implementation("team.unnamed:inject:1.0.1")

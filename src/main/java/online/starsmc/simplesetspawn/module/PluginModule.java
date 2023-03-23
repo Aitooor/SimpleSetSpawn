@@ -1,10 +1,14 @@
-package online.starsmc.spawn.module;
+package online.starsmc.simplesetspawn.module;
 
-import online.starsmc.spawn.Main;
-import online.starsmc.spawn.service.CommandService;
-import online.starsmc.spawn.service.Service;
+import online.starsmc.simplesetspawn.Main;
+import online.starsmc.simplesetspawn.UpdateChecker;
+import online.starsmc.simplesetspawn.service.CommandService;
+import online.starsmc.simplesetspawn.service.ListenerService;
+import online.starsmc.simplesetspawn.service.Service;
 import org.bukkit.configuration.file.FileConfiguration;
 import team.unnamed.inject.AbstractModule;
+
+import static org.bukkit.Bukkit.getLogger;
 
 public class PluginModule extends AbstractModule {
         private final Main plugin;
@@ -22,7 +26,8 @@ public class PluginModule extends AbstractModule {
 
             multibind(Service.class)
                     .asSet()
-                    .to(CommandService.class);
+                    .to(CommandService.class)
+                    .to(ListenerService.class);
 
             install(new CommandModule());
             install(new ListenerModule());

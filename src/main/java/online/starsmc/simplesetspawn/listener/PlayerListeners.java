@@ -1,7 +1,7 @@
-package online.starsmc.spawn.listener;
+package online.starsmc.simplesetspawn.listener;
 
-import online.starsmc.spawn.Main;
-import online.starsmc.spawn.utils.location.LocationCodec;
+import online.starsmc.simplesetspawn.Main;
+import online.starsmc.simplesetspawn.utils.location.LocationCodec;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

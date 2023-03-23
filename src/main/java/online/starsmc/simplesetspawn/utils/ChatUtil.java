@@ -1,4 +1,4 @@
-package online.starsmc.spawn.utils;
+package online.starsmc.simplesetspawn.utils;
 
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -53,11 +53,11 @@ public interface ChatUtil {
     }
 
     static String getPrefixGame() {
-        return "&8[&bsSpawn&8] ";
+        return "&8[&bSimpleSetSpawn&8] ";
     }
 
     static String getPrefix() {
-        return "[sSpawn] ";
+        return "[SimpleSetSpawn] ";
     }
 
 }

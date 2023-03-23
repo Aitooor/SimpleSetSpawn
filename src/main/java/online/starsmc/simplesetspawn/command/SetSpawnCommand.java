@@ -1,17 +1,17 @@
-package online.starsmc.spawn.command;
+package online.starsmc.simplesetspawn.command;
 
 import me.fixeddev.commandflow.annotated.CommandClass;
 import me.fixeddev.commandflow.annotated.annotation.Command;
 import me.fixeddev.commandflow.bukkit.annotation.Sender;
-import online.starsmc.spawn.Main;
-import online.starsmc.spawn.utils.ChatUtil;
-import online.starsmc.spawn.utils.location.LocationCodec;
+import online.starsmc.simplesetspawn.Main;
+import online.starsmc.simplesetspawn.utils.ChatUtil;
+import online.starsmc.simplesetspawn.utils.location.LocationCodec;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import team.unnamed.inject.InjectAll;
 
 @InjectAll
-@Command(names = {"setspawn"}, permission = "sspawn.setspawn")
+@Command(names = {"setspawn"}, permission = "simplesetspawn.setspawn")
 public class SetSpawnCommand implements CommandClass {
 
     private Main plugin;
