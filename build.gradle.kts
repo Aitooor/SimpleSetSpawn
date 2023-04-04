@@ -1,23 +1,14 @@
 plugins{
     id("java")
     id("com.github.johnrengelman.shadow") version ("7.1.2")
-    id("net.minecrell.plugin-yml.bukkit") version ("0.5.2")
 }
 
 group = "online.starsmc"
+var pluginVersion = "1.3.0"
 version = "no-shaded"
 
 java {
     toolchain.languageVersion.set(JavaLanguageVersion.of(16))
-}
-
-bukkit {
-    main = "$group.simplesetspawn.Main"
-    name = rootProject.name
-    description = "Spawn plugin for 1.8 to Latest version"
-    apiVersion = "1.13"
-    version = "1.2.1"
-    softDepend = listOf("PlaceholderAPI")
 }
 
 repositories {
@@ -37,7 +28,7 @@ dependencies {
 
 tasks {
     shadowJar {
-        archiveVersion.set("${bukkit.version}")
+        archiveVersion.set("${pluginVersion}")
         archiveClassifier.set("")
 
         minimize()
