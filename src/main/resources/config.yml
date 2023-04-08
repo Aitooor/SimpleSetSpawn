@@ -1,5 +1,7 @@
 update_checker: true # Check for new updates
 
+folia_support: false # The server is Folia server, if yes set this to "true"
+
 # Teleport to spawn in join
 onjoin_spawn: true
 
