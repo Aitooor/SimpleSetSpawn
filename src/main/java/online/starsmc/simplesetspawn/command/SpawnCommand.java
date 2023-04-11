@@ -32,16 +32,6 @@ public class SpawnCommand implements CommandClass {
 
         Player player = (Player) sender;
 
-        if(plugin.getConfig().getBoolean("folia_support")) {
-            player.teleportAsync(
-                    Objects.requireNonNull(LocationCodec.deserialize(
-                            Objects.requireNonNull(spawnsConfig.get().getString("spawn_location"))
-                    ))
-            );
-            ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to Spawn");
-            return;
-        }
-
         player.teleport(
                 Objects.requireNonNull(LocationCodec.deserialize(
                         Objects.requireNonNull(spawnsConfig.get().getString("spawn_location"))
@@ -58,16 +48,6 @@ public class SpawnCommand implements CommandClass {
         }
 
         Player player = (Player) sender;
-
-        if(plugin.getConfig().getBoolean("folia_support")) {
-            player.teleportAsync(
-                    Objects.requireNonNull(LocationCodec.deserialize(
-                            Objects.requireNonNull(spawnsConfig.get().getString("first_spawn_location"))
-                    ))
-            );
-            ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
-            return;
-        }
 
         player.teleport(
                 Objects.requireNonNull(LocationCodec.deserialize(
