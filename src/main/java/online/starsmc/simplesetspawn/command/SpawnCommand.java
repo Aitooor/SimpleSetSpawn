@@ -7,8 +7,10 @@ import online.starsmc.simplesetspawn.Main;
 import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import online.starsmc.simplesetspawn.utils.ChatUtil;
 import online.starsmc.simplesetspawn.utils.location.LocationCodec;
+import org.bukkit.Location;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
+import org.jetbrains.annotations.Nullable;
 import team.unnamed.inject.InjectAll;
 
 import javax.inject.Named;
@@ -25,31 +27,43 @@ public class SpawnCommand implements CommandClass {
 
     @Command(names = {""})
     public void mainCommand(@Sender CommandSender sender){
-        if(!(sender instanceof Player player)) {
-            ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
-            return;
-        }
+        String location = spawnsConfig.get().getString("spawn_location");
+        if(location != null) {
+            Location locationCodec = LocationCodec.deserialize(location);
 
-        player.teleportAsync(
-                Objects.requireNonNull(LocationCodec.deserialize(
-                        Objects.requireNonNull(spawnsConfig.get().getString("spawn_location"))
-                ))
-        );
-        ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to Spawn");
+            if(!(sender instanceof Player player)) {
+                ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
+                return;
+            }
+
+            if (locationCodec != null) {
+                player.teleportAsync(locationCodec);
+
+                ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to Spawn");
+                return;
+            }
+
+            ChatUtil.sendMsgPlayerPrefix(player, "&cRemember to setup Spawn location");
+        }
     }
 
     @Command(names = {"firstspawn", "first"}, permission = "simplesetspawn.spawn.firstspawn")
     public void firstSpawnCommand(@Sender CommandSender sender){
-        if(!(sender instanceof Player player)) {
-            ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
-            return;
-        }
+        String location = spawnsConfig.get().getString("first_spawn_location");
+        if (location != null) {
+            Location locationCodec = LocationCodec.deserialize(location);
 
-        player.teleportAsync(
-                Objects.requireNonNull(LocationCodec.deserialize(
-                        Objects.requireNonNull(spawnsConfig.get().getString("first_spawn_location"))
-                ))
-        );
-        ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
+            if(!(sender instanceof Player player)) {
+                ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
+                return;
+            }
+
+            if (locationCodec != null) {
+                player.teleportAsync(locationCodec);
+                ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
+                return;
+            }
+            ChatUtil.sendMsgPlayerPrefix(player, "&cRemember to setup First Spawn location");
+        }
     }
 }
