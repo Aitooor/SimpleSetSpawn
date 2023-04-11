@@ -7,6 +7,10 @@ group = "online.starsmc"
 var pluginVersion = "1.3.0"
 version = "no-shaded"
 
+java {
+    toolchain.languageVersion.set(JavaLanguageVersion.of(16))
+}
+
 repositories {
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
