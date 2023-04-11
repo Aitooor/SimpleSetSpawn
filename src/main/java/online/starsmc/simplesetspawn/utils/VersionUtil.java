@@ -17,7 +17,8 @@ public class VersionUtil implements Comparable<VersionUtil> {
     }
 
     @SuppressWarnings("NullableProblems")
-    @Override public int compareTo(VersionUtil that) {
+    @Override
+    public int compareTo(VersionUtil that) {
         if(that == null)
             return 1;
         String[] thisParts = this.get().split("\\.");
@@ -36,7 +37,8 @@ public class VersionUtil implements Comparable<VersionUtil> {
         return 0;
     }
 
-    @Override public boolean equals(Object that) {
+    @Override
+    public boolean equals(Object that) {
         if(this == that)
             return true;
         if(that == null)
