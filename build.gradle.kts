@@ -22,6 +22,7 @@ dependencies {
     compileOnly("org.spigotmc:spigot-api:1.19.4-R0.1-SNAPSHOT")
     compileOnly("me.clip:placeholderapi:2.11.2")
 
+    implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("team.unnamed:inject:1.0.1")
     implementation("me.fixeddev:commandflow-bukkit:0.5.2")
 }
@@ -30,6 +31,7 @@ tasks {
     shadowJar {
         archiveVersion.set("${pluginVersion}")
         archiveClassifier.set("")
+        relocate("org.bstats", "online.starsmc.simplesetspawn.metric")
 
         minimize()
     }

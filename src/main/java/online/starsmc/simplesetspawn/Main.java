@@ -1,5 +1,6 @@
 package online.starsmc.simplesetspawn;
 
+import online.starsmc.simplesetspawn.metric.Metric;
 import online.starsmc.simplesetspawn.module.PluginModule;
 import online.starsmc.simplesetspawn.service.Service;
 import online.starsmc.simplesetspawn.updater.UpdateChecker;
@@ -12,6 +13,7 @@ import java.util.Set;
 public class Main extends JavaPlugin {
     @Inject
     private Set<Service> services;
+    private final Metric metric = new Metric(this);
 
     @Override
     public void onLoad() {
@@ -24,11 +26,13 @@ public class Main extends JavaPlugin {
         services.forEach(Service::start);
 
         new UpdateChecker(this, 108767).start();
+        metric.load();
     }
 
     @Override
     public void onDisable() {
         services.forEach(Service::stop);
+        metric.disable();
     }
 
 }
