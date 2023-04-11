@@ -1,5 +1,6 @@
-package online.starsmc.simplesetspawn.updater;
+package online.starsmc.simplesetspawn.utils.external;
 
+import online.starsmc.simplesetspawn.utils.VersionUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -20,6 +21,16 @@ public class UpdateChecker {
     }
 
     public void getVersion(final Consumer<String> consumer) {
+        if(plugin.getConfig().getBoolean("folia_support")) {
+            try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + this.resourceId).openStream(); Scanner scanner = new Scanner(inputStream)) {
+                if (scanner.hasNext()) {
+                    consumer.accept(scanner.next());
+                }
+            } catch (IOException exception) {
+                plugin.getLogger().info("Unable to check for updates: " + exception.getMessage());
+            }
+            return;
+        }
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
             try (InputStream inputStream = new URL("https://api.spigotmc.org/legacy/update.php?resource=" + this.resourceId).openStream(); Scanner scanner = new Scanner(inputStream)) {
                 if (scanner.hasNext()) {
@@ -34,13 +45,13 @@ public class UpdateChecker {
     public void start() {
         if(plugin.getConfig().getBoolean("update_checker")) {
             String serverVersion = plugin.getDescription().getVersion();
-            Version serverVersionV = new Version(serverVersion);
+            VersionUtil serverVersionVUtil = new VersionUtil(serverVersion);
 
             new UpdateChecker(plugin, this.resourceId).getVersion(version -> {
-                Version versionV = new Version(version);
+                VersionUtil versionUtilV = new VersionUtil(version);
 
                 if (!serverVersion.equals(version)) {
-                    if (serverVersionV.compareTo(versionV) > 0) {
+                    if (serverVersionVUtil.compareTo(versionUtilV) > 0) {
                         plugin.getLogger().warning("It seems that you are using a DEV version. May have bugs");
                         plugin.getLogger().warning("Your version: " + serverVersion);
                         plugin.getLogger().warning("Latest version: " + version);
@@ -53,7 +64,7 @@ public class UpdateChecker {
                     plugin.getLogger().warning("Download it here https://www.spigotmc.org/resources/simplesetspawn-1-8-1-19-simple-setspawn-and-spawn.108767/");
                     return;
                 }
-                plugin.getLogger().info("Current Version: " + serverVersion);
+                plugin.getLogger().info("Current VersionUtil: " + serverVersion);
                 plugin.getLogger().info("No new version available.");
             });
         }

@@ -41,6 +41,10 @@ public class PlayerListeners implements Listener {
         if(plugin.getConfig().getBoolean("on_first_join_spawn")) {
            if(!player.hasPlayedBefore()) {
                if (spawnLocation != null) {
+                   if(plugin.getConfig().getBoolean("folia_support")) {
+                       player.teleportAsync(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
+                       return;
+                   }
                    player.teleport(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
                }
            }
@@ -49,7 +53,11 @@ public class PlayerListeners implements Listener {
         if(firstSpawnBoolean) {
             if(!player.hasPlayedBefore()) {
                 if (firstSpawnLocation != null) {
-                    player.teleport(Objects.requireNonNull(LocationCodec.deserialize(firstSpawnLocation)));
+                    if(plugin.getConfig().getBoolean("folia_support")) {
+                        player.teleportAsync(Objects.requireNonNull(LocationCodec.deserialize(firstSpawnLocation)));
+                        return;
+                    }
+                   player.teleport(Objects.requireNonNull(LocationCodec.deserialize(firstSpawnLocation)));
                 }
             }
         }
@@ -57,6 +65,10 @@ public class PlayerListeners implements Listener {
         if(player.hasPlayedBefore()) {
             if (joinSpawnBoolean) {
                 if (spawnLocation != null) {
+                    if(plugin.getConfig().getBoolean("folia_support")) {
+                        player.teleportAsync(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
+                        return;
+                    }
                     player.teleport(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
                 }
             }
