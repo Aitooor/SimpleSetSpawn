@@ -1,9 +1,9 @@
 package online.starsmc.simplesetspawn;
 
-import online.starsmc.simplesetspawn.metric.Metric;
+import online.starsmc.simplesetspawn.utils.external.metric.Metric;
 import online.starsmc.simplesetspawn.module.PluginModule;
 import online.starsmc.simplesetspawn.service.Service;
-import online.starsmc.simplesetspawn.updater.UpdateChecker;
+import online.starsmc.simplesetspawn.utils.external.updater.UpdateChecker;
 import org.bukkit.plugin.java.JavaPlugin;
 import team.unnamed.inject.Injector;
 

@@ -31,7 +31,7 @@ tasks {
     shadowJar {
         archiveVersion.set("${pluginVersion}")
         archiveClassifier.set("")
-        relocate("org.bstats", "online.starsmc.simplesetspawn.metric")
+        relocate("org.bstats", "online.starsmc.simplesetspawn.utils.external.metric")
 
         minimize()
     }

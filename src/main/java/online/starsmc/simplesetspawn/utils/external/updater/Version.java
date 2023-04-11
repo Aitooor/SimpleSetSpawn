@@ -1,4 +1,4 @@
-package online.starsmc.simplesetspawn.updater;
+package online.starsmc.simplesetspawn.utils.external.updater;
 
 public class Version implements Comparable<Version> {
 

@@ -1,4 +1,4 @@
-package online.starsmc.simplesetspawn.updater;
+package online.starsmc.simplesetspawn.utils.external.updater;
 
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;

@@ -1,4 +1,4 @@
-package online.starsmc.simplesetspawn.metric;
+package online.starsmc.simplesetspawn.utils.external.metric;
 
 import online.starsmc.simplesetspawn.Main;
 import org.bstats.bukkit.Metrics;
