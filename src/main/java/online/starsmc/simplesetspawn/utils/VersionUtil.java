@@ -1,6 +1,6 @@
-package online.starsmc.simplesetspawn.utils.external.updater;
+package online.starsmc.simplesetspawn.utils;
 
-public class Version implements Comparable<Version> {
+public class VersionUtil implements Comparable<VersionUtil> {
 
     private String version;
 
@@ -8,15 +8,15 @@ public class Version implements Comparable<Version> {
         return this.version;
     }
 
-    public Version(String version) {
+    public VersionUtil(String version) {
         if(version == null)
-            throw new IllegalArgumentException("Version can not be null");
+            throw new IllegalArgumentException("VersionUtil can not be null");
         if(!version.matches("[0-9]+(\\.[0-9]+)*"))
             throw new IllegalArgumentException("Invalid version format");
         this.version = version;
     }
 
-    @Override public int compareTo(Version that) {
+    @Override public int compareTo(VersionUtil that) {
         if(that == null)
             return 1;
         String[] thisParts = this.get().split("\\.");
@@ -42,7 +42,7 @@ public class Version implements Comparable<Version> {
             return false;
         if(this.getClass() != that.getClass())
             return false;
-        return this.compareTo((Version) that) == 0;
+        return this.compareTo((VersionUtil) that) == 0;
     }
 
 }

@@ -1,14 +1,14 @@
-package online.starsmc.simplesetspawn.utils.external.metric;
+package online.starsmc.simplesetspawn.utils.external;
 
 import online.starsmc.simplesetspawn.Main;
 import org.bstats.bukkit.Metrics;
 
-public class Metric {
+public class MetricUtil {
 
     private final Main plugin;
     private final int pluginId = 18178;
 
-    public Metric(Main plugin) {
+    public MetricUtil(Main plugin) {
         this.plugin = plugin;
     }
 
