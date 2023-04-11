@@ -1,8 +1,10 @@
 package online.starsmc.simplesetspawn.utils;
 
+import org.jetbrains.annotations.NotNull;
+
 public class VersionUtil implements Comparable<VersionUtil> {
 
-    private String version;
+    private final String version;
 
     public final String get() {
         return this.version;
@@ -16,6 +18,7 @@ public class VersionUtil implements Comparable<VersionUtil> {
         this.version = version;
     }
 
+    @SuppressWarnings("NullableProblems")
     @Override public int compareTo(VersionUtil that) {
         if(that == null)
             return 1;

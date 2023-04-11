@@ -29,7 +29,7 @@ dependencies {
 
 tasks {
     shadowJar {
-        archiveVersion.set("${pluginVersion}")
+        archiveVersion.set(pluginVersion)
         archiveClassifier.set("")
         relocate("org.bstats", "online.starsmc.simplesetspawn.utils.external.metric")
 

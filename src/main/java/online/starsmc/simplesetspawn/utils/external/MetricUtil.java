@@ -6,7 +6,6 @@ import org.bstats.bukkit.Metrics;
 public class MetricUtil {
 
     private final Main plugin;
-    private final int pluginId = 18178;
 
     public MetricUtil(Main plugin) {
         this.plugin = plugin;
@@ -23,6 +22,7 @@ public class MetricUtil {
     }
 
     public Metrics metrics() {
+        int pluginId = 18178;
         return new Metrics(plugin, pluginId);
     }
 }
