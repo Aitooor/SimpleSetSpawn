@@ -20,7 +20,7 @@ SetSpawn and Spawn plugin for 1.8 to Latest Minecraft servers
 ---
 
 ## Build
-- `Java 16`
+- `Java 17`
 - `./gradlew build` (If gradle is not installed on your PC)
 - `gradle build` (If gradle is installed on your PC)
 - `Find it at /build/libs/SimpleSetSpawn-(VERSION).jar`
