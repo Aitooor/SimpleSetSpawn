@@ -1,7 +1,5 @@
 package online.starsmc.simplesetspawn.utils;
 
-import org.jetbrains.annotations.NotNull;
-
 public class VersionUtil implements Comparable<VersionUtil> {
 
     private final String version;
