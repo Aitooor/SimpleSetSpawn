@@ -25,24 +25,12 @@ public class SpawnCommand implements CommandClass {
 
     @Command(names = {""})
     public void mainCommand(@Sender CommandSender sender){
-        if(!(sender instanceof Player)) {
+        if(!(sender instanceof Player player)) {
             ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
             return;
         }
 
-        Player player = (Player) sender;
-
-        if(plugin.getConfig().getBoolean("folia_support")) {
-            player.teleportAsync(
-                    Objects.requireNonNull(LocationCodec.deserialize(
-                            Objects.requireNonNull(spawnsConfig.get().getString("spawn_location"))
-                    ))
-            );
-            ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to Spawn");
-            return;
-        }
-
-        player.teleport(
+        player.teleportAsync(
                 Objects.requireNonNull(LocationCodec.deserialize(
                         Objects.requireNonNull(spawnsConfig.get().getString("spawn_location"))
                 ))
@@ -52,29 +40,16 @@ public class SpawnCommand implements CommandClass {
 
     @Command(names = {"firstspawn", "first"}, permission = "simplesetspawn.spawn.firstspawn")
     public void firstSpawnCommand(@Sender CommandSender sender){
-        if(!(sender instanceof Player)) {
+        if(!(sender instanceof Player player)) {
             ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
             return;
         }
 
-        Player player = (Player) sender;
-
-        if(plugin.getConfig().getBoolean("folia_support")) {
-            player.teleportAsync(
-                    Objects.requireNonNull(LocationCodec.deserialize(
-                            Objects.requireNonNull(spawnsConfig.get().getString("first_spawn_location"))
-                    ))
-            );
-            ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
-            return;
-        }
-
-        player.teleport(
+        player.teleportAsync(
                 Objects.requireNonNull(LocationCodec.deserialize(
                         Objects.requireNonNull(spawnsConfig.get().getString("first_spawn_location"))
                 ))
         );
-
         ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
     }
 }
