@@ -10,7 +10,7 @@ import java.util.List;
 
 public interface ChatUtil {
 
-    static Main plugin = Main.getPlugin(Main.class);
+    Main plugin = Main.getPlugin(Main.class);
 
     static String translate(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
