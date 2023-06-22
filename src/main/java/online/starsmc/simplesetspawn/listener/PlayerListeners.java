@@ -4,10 +4,13 @@ import online.starsmc.simplesetspawn.Main;
 import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import online.starsmc.simplesetspawn.utils.ChatUtil;
 import online.starsmc.simplesetspawn.utils.location.LocationCodec;
+import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerRespawnEvent;
 import team.unnamed.inject.InjectAll;
 
 import javax.inject.Named;
@@ -60,6 +63,16 @@ public class PlayerListeners implements Listener {
                     player.teleport(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
                 }
             }
+        }
+    }
+
+    @EventHandler
+    public void onPlayerRespawnEvent(PlayerRespawnEvent event) {
+        Player player = event.getPlayer();
+        String spawnLocation = spawnsConfig.get().getString("spawn_location");
+
+        if(plugin.getConfig().getBoolean("on_death_spawn")) {
+            Bukkit.getScheduler().runTask(Main.getPlugin(Main.class), bukkitTask -> Objects.requireNonNull(player).teleport(Objects.requireNonNull(LocationCodec.deserialize(Objects.requireNonNull(spawnLocation)))));
         }
     }
 }
