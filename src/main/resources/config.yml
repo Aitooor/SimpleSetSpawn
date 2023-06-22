@@ -7,3 +7,8 @@ onjoin_spawn: true
 on_first_join_spawn: false
 # Setup different spawn for first join players (Disable "on_first_join_spawn" if you use this)
 spawn_for_newbies: true
+
+# Setup different spawn for first join players (Disable "on_first_join_spawn" if you use this)
+on_death_spawn: true
+
+prefix: "&8[&bSimpleSetSpawn&8] "

@@ -1,5 +1,6 @@
 package online.starsmc.simplesetspawn.utils;
 
+import online.starsmc.simplesetspawn.Main;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -8,6 +9,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 public interface ChatUtil {
+
+    static Main plugin = Main.getPlugin(Main.class);
 
     static String translate(String message) {
         return ChatColor.translateAlternateColorCodes('&', message);
@@ -53,7 +56,7 @@ public interface ChatUtil {
     }
 
     static String getPrefixGame() {
-        return "&8[&bSimpleSetSpawn&8] ";
+        return plugin.getConfig().getString("prefix");
     }
 
     static String getPrefix() {
