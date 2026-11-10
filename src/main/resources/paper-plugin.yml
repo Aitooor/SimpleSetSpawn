@@ -1,4 +1,4 @@
-name: StarsSimpleSetSpawn
+name: sSimpleSetSpawn
 version: '1.3.0'
 main: eu.starsmc.simplesetspawn.Main
 api-version: '1.19'

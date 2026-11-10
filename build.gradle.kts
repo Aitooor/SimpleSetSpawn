@@ -72,6 +72,14 @@ tasks {
         libraryjars(configurations.compileClasspath.get().files)
 
         configuration("proguard-rules.pro")
+
+        doLast {
+            val releasedDir = File("/home/antigravity/released_jars/plugins")
+            releasedDir.mkdirs()
+            val destJar = File(releasedDir, "${rootProject.name}-${pluginVersion}.jar")
+            outJar.copyTo(destJar, overwrite = true)
+            println("Exported ${outJar.name} -> $destJar")
+        }
     }
 
     build {
