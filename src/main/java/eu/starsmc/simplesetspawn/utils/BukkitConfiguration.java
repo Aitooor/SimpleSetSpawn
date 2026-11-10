@@ -1,6 +1,6 @@
-package online.starsmc.simplesetspawn.utils;
+package eu.starsmc.simplesetspawn.utils;
 
-import online.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.Main;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 

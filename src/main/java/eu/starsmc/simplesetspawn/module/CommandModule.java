@@ -1,9 +1,9 @@
-package online.starsmc.simplesetspawn.module;
+package eu.starsmc.simplesetspawn.module;
 
 import dev.triumphteam.cmd.core.BaseCommand;
-import online.starsmc.simplesetspawn.command.MainCommand;
-import online.starsmc.simplesetspawn.command.SetSpawnCommand;
-import online.starsmc.simplesetspawn.command.SpawnCommand;
+import eu.starsmc.simplesetspawn.command.MainCommand;
+import eu.starsmc.simplesetspawn.command.SetSpawnCommand;
+import eu.starsmc.simplesetspawn.command.SpawnCommand;
 import team.unnamed.inject.AbstractModule;
 
 public class CommandModule extends AbstractModule {

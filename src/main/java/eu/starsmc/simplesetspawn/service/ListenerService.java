@@ -1,6 +1,6 @@
-package online.starsmc.simplesetspawn.service;
+package eu.starsmc.simplesetspawn.service;
 
-import online.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.Main;
 import org.bukkit.Bukkit;
 import org.bukkit.event.Listener;
 import org.bukkit.plugin.PluginManager;

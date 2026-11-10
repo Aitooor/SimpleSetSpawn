@@ -1,2 +1,2 @@
-rootProject.name = "SimpleSetSpawn"
+rootProject.name = "StarsSimpleSetSpawn"
 

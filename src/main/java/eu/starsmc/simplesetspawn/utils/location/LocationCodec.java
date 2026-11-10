@@ -1,4 +1,4 @@
-package online.starsmc.simplesetspawn.utils.location;
+package eu.starsmc.simplesetspawn.utils.location;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;

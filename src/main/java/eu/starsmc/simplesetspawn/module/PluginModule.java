@@ -1,11 +1,11 @@
-package online.starsmc.simplesetspawn.module;
+package eu.starsmc.simplesetspawn.module;
 
-import online.starsmc.simplesetspawn.Main;
-import online.starsmc.simplesetspawn.service.CommandService;
-import online.starsmc.simplesetspawn.service.ConfigurationService;
-import online.starsmc.simplesetspawn.service.ListenerService;
-import online.starsmc.simplesetspawn.service.Service;
-import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
+import eu.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.service.CommandService;
+import eu.starsmc.simplesetspawn.service.ConfigurationService;
+import eu.starsmc.simplesetspawn.service.ListenerService;
+import eu.starsmc.simplesetspawn.service.Service;
+import eu.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import org.bukkit.configuration.file.FileConfiguration;
 import team.unnamed.inject.AbstractModule;
 

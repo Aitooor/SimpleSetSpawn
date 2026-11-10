@@ -1,4 +1,4 @@
-package online.starsmc.simplesetspawn.service;
+package eu.starsmc.simplesetspawn.service;
 
 public interface Service {
 

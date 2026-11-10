@@ -1,7 +1,7 @@
-package online.starsmc.simplesetspawn.service;
+package eu.starsmc.simplesetspawn.service;
 
-import online.starsmc.simplesetspawn.Main;
-import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
+import eu.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import team.unnamed.inject.InjectAll;
 
 import javax.inject.Named;

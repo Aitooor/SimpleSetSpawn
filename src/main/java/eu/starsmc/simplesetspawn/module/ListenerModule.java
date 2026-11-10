@@ -1,6 +1,6 @@
-package online.starsmc.simplesetspawn.module;
+package eu.starsmc.simplesetspawn.module;
 
-import online.starsmc.simplesetspawn.listener.PlayerListeners;
+import eu.starsmc.simplesetspawn.listener.PlayerListeners;
 import org.bukkit.event.Listener;
 import team.unnamed.inject.AbstractModule;
 

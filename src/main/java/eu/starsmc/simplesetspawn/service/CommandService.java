@@ -1,8 +1,8 @@
-package online.starsmc.simplesetspawn.service;
+package eu.starsmc.simplesetspawn.service;
 
 import dev.triumphteam.cmd.bukkit.BukkitCommandManager;
 import dev.triumphteam.cmd.core.BaseCommand;
-import online.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.Main;
 import org.bukkit.command.CommandSender;
 
 import javax.inject.Inject;

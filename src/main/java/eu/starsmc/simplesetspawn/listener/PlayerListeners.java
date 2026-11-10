@@ -1,9 +1,9 @@
-package online.starsmc.simplesetspawn.listener;
+package eu.starsmc.simplesetspawn.listener;
 
-import online.starsmc.simplesetspawn.Main;
-import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
-import online.starsmc.simplesetspawn.utils.ChatUtil;
-import online.starsmc.simplesetspawn.utils.location.LocationCodec;
+import eu.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.utils.BukkitConfiguration;
+import eu.starsmc.simplesetspawn.utils.ChatUtil;
+import eu.starsmc.simplesetspawn.utils.location.LocationCodec;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;

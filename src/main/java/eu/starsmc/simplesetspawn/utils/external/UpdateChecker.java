@@ -1,6 +1,6 @@
-package online.starsmc.simplesetspawn.utils.external;
+package eu.starsmc.simplesetspawn.utils.external;
 
-import online.starsmc.simplesetspawn.utils.VersionUtil;
+import eu.starsmc.simplesetspawn.utils.VersionUtil;
 import org.bukkit.Bukkit;
 import org.bukkit.plugin.java.JavaPlugin;
 

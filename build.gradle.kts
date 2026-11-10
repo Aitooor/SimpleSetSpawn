@@ -1,9 +1,18 @@
+buildscript {
+    repositories {
+        mavenCentral()
+    }
+    dependencies {
+        classpath("com.guardsquare:proguard-gradle:7.4.2")
+    }
+}
+
 plugins {
     id("java")
     id("com.github.johnrengelman.shadow") version ("7.1.2")
 }
 
-group = "online.starsmc"
+group = "eu.starsmc"
 val pluginVersion = "1.3.0"
 version = "no-shaded"
 
@@ -34,13 +43,38 @@ dependencies {
 tasks {
     shadowJar {
         archiveVersion.set(pluginVersion)
-        archiveClassifier.set("")
-        relocate("org.bstats", "online.starsmc.simplesetspawn.utils.external.metric")
+        archiveClassifier.set("unobf")
+        relocate("org.bstats", "eu.starsmc.simplesetspawn.utils.external.metric")
 
         minimize()
     }
 
+    val proguardJar by registering(proguard.gradle.ProGuardTask::class) {
+        dependsOn(shadowJar)
+
+        val inJar = shadowJar.get().archiveFile.get().asFile
+        val outJar = File(inJar.parentFile, "${rootProject.name}-${pluginVersion}.jar")
+
+        injars(inJar)
+        outjars(outJar)
+
+        val javaHome = System.getProperty("java.home")
+        val jmodsDir = File(javaHome, "jmods")
+        if (jmodsDir.exists()) {
+            libraryjars(fileTree(jmodsDir) { include("*.jmod") })
+        } else {
+            val rtJar = File(javaHome, "lib/rt.jar")
+            if (rtJar.exists()) {
+                libraryjars(rtJar)
+            }
+        }
+
+        libraryjars(configurations.compileClasspath.get().files)
+
+        configuration("proguard-rules.pro")
+    }
+
     build {
-        dependsOn("shadowJar")
+        dependsOn(proguardJar)
     }
 }

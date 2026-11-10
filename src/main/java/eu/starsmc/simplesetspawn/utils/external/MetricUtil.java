@@ -1,6 +1,6 @@
-package online.starsmc.simplesetspawn.utils.external;
+package eu.starsmc.simplesetspawn.utils.external;
 
-import online.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.Main;
 import org.bstats.bukkit.Metrics;
 
 public class MetricUtil {

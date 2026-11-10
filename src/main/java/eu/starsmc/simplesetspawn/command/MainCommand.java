@@ -1,13 +1,13 @@
-package online.starsmc.simplesetspawn.command;
+package eu.starsmc.simplesetspawn.command;
 
 import dev.triumphteam.cmd.bukkit.annotation.Permission;
 import dev.triumphteam.cmd.core.BaseCommand;
 import dev.triumphteam.cmd.core.annotation.Command;
 import dev.triumphteam.cmd.core.annotation.Default;
 import dev.triumphteam.cmd.core.annotation.SubCommand;
-import online.starsmc.simplesetspawn.Main;
-import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
-import online.starsmc.simplesetspawn.utils.ChatUtil;
+import eu.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.utils.BukkitConfiguration;
+import eu.starsmc.simplesetspawn.utils.ChatUtil;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 import team.unnamed.inject.InjectAll;

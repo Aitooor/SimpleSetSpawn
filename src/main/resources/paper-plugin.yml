@@ -1,6 +1,6 @@
-name: SimpleSetSpawn
+name: StarsSimpleSetSpawn
 version: '1.3.0'
-main: online.starsmc.simplesetspawn.Main
+main: eu.starsmc.simplesetspawn.Main
 api-version: '1.19'
 description: Spawn plugin for 1.8 to Latest version
 authors:

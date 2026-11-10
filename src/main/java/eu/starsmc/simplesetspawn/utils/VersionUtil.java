@@ -1,4 +1,4 @@
-package online.starsmc.simplesetspawn.utils;
+package eu.starsmc.simplesetspawn.utils;
 
 public class VersionUtil implements Comparable<VersionUtil> {
 
