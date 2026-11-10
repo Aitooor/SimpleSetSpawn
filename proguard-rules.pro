@@ -23,6 +23,9 @@
     *;
 }
 
+# Keep FoliaLib
+-keep class com.tcoded.folialib.** { *; }
+
 # Keep Triumph Commands
 -keep @dev.triumphteam.cmd.core.annotation.* class * {
     public *;

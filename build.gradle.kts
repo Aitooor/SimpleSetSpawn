@@ -24,6 +24,7 @@ java {
 repositories {
     mavenLocal()
     mavenCentral()
+    maven("https://nexus.tcoded.com/content/repositories/releases/")
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
     maven("https://jitpack.io")
@@ -38,6 +39,7 @@ dependencies {
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("team.unnamed:inject:1.0.1")
     implementation("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
+    implementation("com.tcoded:FoliaLib:0.4.3")
 }
 
 tasks {
@@ -46,7 +48,9 @@ tasks {
         archiveClassifier.set("unobf")
         relocate("org.bstats", "eu.starsmc.simplesetspawn.utils.external.metric")
 
-        minimize()
+        minimize {
+            exclude(dependency("com.tcoded:FoliaLib:.*"))
+        }
     }
 
     val proguardJar by registering(proguard.gradle.ProGuardTask::class) {
@@ -79,6 +83,9 @@ tasks {
             val destJar = File(releasedDir, "${rootProject.name}-${pluginVersion}.jar")
             outJar.copyTo(destJar, overwrite = true)
             println("Exported ${outJar.name} -> $destJar")
+            val legacyDest = File(releasedDir, "sSimpleSetSpawn-${pluginVersion}.jar")
+            outJar.copyTo(legacyDest, overwrite = true)
+            println("Exported ${outJar.name} -> $legacyDest")
         }
     }
 

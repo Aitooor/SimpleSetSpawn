@@ -1,10 +1,11 @@
 package eu.starsmc.simplesetspawn.listener;
 
+import com.tcoded.folialib.FoliaLib;
 import eu.starsmc.simplesetspawn.Main;
 import eu.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import eu.starsmc.simplesetspawn.utils.ChatUtil;
 import eu.starsmc.simplesetspawn.utils.location.LocationCodec;
-import org.bukkit.Bukkit;
+import org.bukkit.Location;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
@@ -13,12 +14,12 @@ import org.bukkit.event.player.PlayerRespawnEvent;
 import team.unnamed.inject.InjectAll;
 
 import javax.inject.Named;
-import java.util.Objects;
 
 @InjectAll
 public class PlayerListeners implements Listener {
 
     private Main plugin;
+    private FoliaLib foliaLib;
     @Named("spawns")
     private BukkitConfiguration spawnsConfig;
 
@@ -43,7 +44,10 @@ public class PlayerListeners implements Listener {
         if(plugin.getConfig().getBoolean("on_first_join_spawn")) {
            if(!player.hasPlayedBefore()) {
                if (spawnLocation != null) {
-                   player.teleport(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
+                   Location loc = LocationCodec.deserialize(spawnLocation);
+                   if (loc != null) {
+                       foliaLib.getImpl().teleportAsync(player, loc);
+                   }
                }
            }
         }
@@ -51,7 +55,10 @@ public class PlayerListeners implements Listener {
         if(firstSpawnBoolean) {
             if(!player.hasPlayedBefore()) {
                 if (firstSpawnLocation != null) {
-                   player.teleport(Objects.requireNonNull(LocationCodec.deserialize(firstSpawnLocation)));
+                   Location loc = LocationCodec.deserialize(firstSpawnLocation);
+                   if (loc != null) {
+                       foliaLib.getImpl().teleportAsync(player, loc);
+                   }
                 }
             }
         }
@@ -59,7 +66,10 @@ public class PlayerListeners implements Listener {
         if(player.hasPlayedBefore()) {
             if (joinSpawnBoolean) {
                 if (spawnLocation != null) {
-                    player.teleport(Objects.requireNonNull(LocationCodec.deserialize(spawnLocation)));
+                    Location loc = LocationCodec.deserialize(spawnLocation);
+                    if (loc != null) {
+                        foliaLib.getImpl().teleportAsync(player, loc);
+                    }
                 }
             }
         }
@@ -71,7 +81,12 @@ public class PlayerListeners implements Listener {
         String spawnLocation = spawnsConfig.get().getString("spawn_location");
 
         if(plugin.getConfig().getBoolean("on_death_spawn")) {
-            Bukkit.getScheduler().runTask(Main.getPlugin(Main.class), bukkitTask -> Objects.requireNonNull(player).teleport(Objects.requireNonNull(LocationCodec.deserialize(Objects.requireNonNull(spawnLocation)))));
+            if (spawnLocation != null) {
+                Location loc = LocationCodec.deserialize(spawnLocation);
+                if (loc != null) {
+                    foliaLib.getImpl().teleportAsync(player, loc);
+                }
+            }
         }
     }
 }

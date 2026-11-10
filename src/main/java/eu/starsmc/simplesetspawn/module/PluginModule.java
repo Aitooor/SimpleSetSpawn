@@ -1,5 +1,6 @@
 package eu.starsmc.simplesetspawn.module;
 
+import com.tcoded.folialib.FoliaLib;
 import eu.starsmc.simplesetspawn.Main;
 import eu.starsmc.simplesetspawn.service.CommandService;
 import eu.starsmc.simplesetspawn.service.ConfigurationService;
@@ -22,6 +23,9 @@ public class PluginModule extends AbstractModule {
 
             bind(Main.class).toInstance(plugin);
             bind(FileConfiguration.class).toInstance(config);
+
+            FoliaLib foliaLib = new FoliaLib(plugin);
+            bind(FoliaLib.class).toInstance(foliaLib);
 
             multibind(Service.class)
                     .asSet()

@@ -1,5 +1,6 @@
 package eu.starsmc.simplesetspawn.command;
 
+import com.tcoded.folialib.FoliaLib;
 import dev.triumphteam.cmd.bukkit.annotation.Permission;
 import dev.triumphteam.cmd.core.BaseCommand;
 import dev.triumphteam.cmd.core.annotation.Command;
@@ -21,6 +22,7 @@ import javax.inject.Named;
 public class SpawnCommand extends BaseCommand {
 
     private Main plugin;
+    private FoliaLib foliaLib;
 
     @Named("spawns")
     private BukkitConfiguration spawnsConfig;
@@ -38,7 +40,7 @@ public class SpawnCommand extends BaseCommand {
         if (location != null) {
             Location locationCodec = LocationCodec.deserialize(location);
             if (locationCodec != null) {
-                player.teleport(locationCodec);
+                foliaLib.getImpl().teleportAsync(player, locationCodec);
                 ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to Spawn");
             }
         }
@@ -57,7 +59,7 @@ public class SpawnCommand extends BaseCommand {
         if (location != null) {
             Location locationCodec = LocationCodec.deserialize(location);
             if (locationCodec != null) {
-                player.teleport(locationCodec);
+                foliaLib.getImpl().teleportAsync(player, locationCodec);
             }
             ChatUtil.sendMsgPlayerPrefix(player, "&aTeleported to First Spawn");
         }
