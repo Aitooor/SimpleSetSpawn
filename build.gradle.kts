@@ -1,30 +1,34 @@
-plugins{
+plugins {
     id("java")
     id("com.github.johnrengelman.shadow") version ("7.1.2")
 }
 
 group = "online.starsmc"
-var pluginVersion = "1.3.0"
+val pluginVersion = "1.3.0"
 version = "no-shaded"
 
 java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+    sourceCompatibility = JavaVersion.VERSION_1_8
+    targetCompatibility = JavaVersion.VERSION_1_8
 }
 
 repositories {
+    mavenLocal()
     mavenCentral()
     maven("https://repo.papermc.io/repository/maven-public/")
     maven("https://repo.extendedclip.com/content/repositories/placeholderapi/")
-    maven("https://repo.unnamed.team/repository/unnamed-public/")
+    maven("https://jitpack.io")
+    maven("https://repo.triumphteam.dev/snapshots/")
 }
 
 dependencies {
-    compileOnly("org.spigotmc:spigot-api:1.20.1-R0.1-SNAPSHOT")
-    compileOnly("me.clip:placeholderapi:2.11.2")
+    compileOnly("com.destroystokyo.paper:paper-api:1.16.5-R0.1-SNAPSHOT")
+    compileOnly("me.clip:placeholderapi:2.11.5")
+    compileOnly("javax.inject:javax.inject:1")
 
     implementation("org.bstats:bstats-bukkit:3.0.2")
     implementation("team.unnamed:inject:1.0.1")
-    implementation("me.fixeddev:commandflow-bukkit:0.5.2")
+    implementation("dev.triumphteam:triumph-cmd-bukkit:2.0.0-SNAPSHOT")
 }
 
 tasks {
@@ -35,8 +39,7 @@ tasks {
 
         minimize()
     }
-}
-tasks {
+
     build {
         dependsOn("shadowJar")
     }

@@ -1,8 +1,10 @@
 package online.starsmc.simplesetspawn.command;
 
-import me.fixeddev.commandflow.annotated.CommandClass;
-import me.fixeddev.commandflow.annotated.annotation.Command;
-import me.fixeddev.commandflow.bukkit.annotation.Sender;
+import dev.triumphteam.cmd.bukkit.annotation.Permission;
+import dev.triumphteam.cmd.core.BaseCommand;
+import dev.triumphteam.cmd.core.annotation.Command;
+import dev.triumphteam.cmd.core.annotation.Default;
+import dev.triumphteam.cmd.core.annotation.SubCommand;
 import online.starsmc.simplesetspawn.Main;
 import online.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import online.starsmc.simplesetspawn.utils.ChatUtil;
@@ -14,17 +16,18 @@ import team.unnamed.inject.InjectAll;
 import javax.inject.Named;
 
 @InjectAll
-@Command(names = {"setspawn"}, permission = "simplesetspawn.setspawn")
-public class SetSpawnCommand implements CommandClass {
+@Command(value = "setspawn")
+public class SetSpawnCommand extends BaseCommand {
 
     private Main plugin;
 
     @Named("spawns")
     private BukkitConfiguration spawnsConfig;
 
-    @Command(names = {""})
-    public void mainCommand(@Sender CommandSender sender){
-        if(!(sender instanceof Player)) {
+    @Default
+    @Permission("simplesetspawn.setspawn")
+    public void mainCommand(CommandSender sender) {
+        if (!(sender instanceof Player)) {
             ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
             return;
         }
@@ -37,9 +40,10 @@ public class SetSpawnCommand implements CommandClass {
         ChatUtil.sendMsgPlayerPrefix(player, "&aSpawn correctly set");
     }
 
-    @Command(names = {"firstspawn", "first"}, permission = "simplesetspawn.setspawn.firstspawn")
-    public void firstSpawnCommand(@Sender CommandSender sender){
-        if(!(sender instanceof Player)) {
+    @SubCommand(value = "firstspawn", alias = {"first"})
+    @Permission("simplesetspawn.setspawn.firstspawn")
+    public void firstSpawnCommand(CommandSender sender) {
+        if (!(sender instanceof Player)) {
             ChatUtil.sendMsgSender(sender, "&cThis command only can execute in game");
             return;
         }
