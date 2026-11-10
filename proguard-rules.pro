@@ -23,6 +23,9 @@
     *;
 }
 
+# Keep API
+-keep public class eu.starsmc.simplesetspawn.api.** { public *; }
+
 # Keep FoliaLib
 -keep class com.tcoded.folialib.** { *; }
 

@@ -2,12 +2,15 @@ package eu.starsmc.simplesetspawn.module;
 
 import com.tcoded.folialib.FoliaLib;
 import eu.starsmc.simplesetspawn.Main;
+import eu.starsmc.simplesetspawn.api.SimpleSetSpawnAPI;
+import eu.starsmc.simplesetspawn.api.SimpleSetSpawnAPIImpl;
 import eu.starsmc.simplesetspawn.service.CommandService;
 import eu.starsmc.simplesetspawn.service.ConfigurationService;
 import eu.starsmc.simplesetspawn.service.ListenerService;
 import eu.starsmc.simplesetspawn.service.Service;
 import eu.starsmc.simplesetspawn.utils.BukkitConfiguration;
 import org.bukkit.configuration.file.FileConfiguration;
+import org.bukkit.plugin.ServicePriority;
 import team.unnamed.inject.AbstractModule;
 
 public class PluginModule extends AbstractModule {
@@ -33,9 +36,15 @@ public class PluginModule extends AbstractModule {
                     .to(ListenerService.class)
                     .to(ConfigurationService.class);
 
+            BukkitConfiguration spawnsConfig = new BukkitConfiguration(plugin, "spawns");
             bind(BukkitConfiguration.class)
                     .named("spawns")
-                    .toInstance(new BukkitConfiguration(plugin, "spawns"));
+                    .toInstance(spawnsConfig);
+
+            SimpleSetSpawnAPI api = new SimpleSetSpawnAPIImpl(spawnsConfig, foliaLib);
+            SimpleSetSpawnAPI.InstanceHolder.instance = api;
+            plugin.getServer().getServicesManager().register(SimpleSetSpawnAPI.class, api, plugin, ServicePriority.Normal);
+            bind(SimpleSetSpawnAPI.class).toInstance(api);
 
             install(new CommandModule());
             install(new ListenerModule());
